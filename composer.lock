@@ -182,12 +182,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp-inspector/printer.git",
-                "reference": "237a29ffd3fd65b289c24153a5a0bc3c8fa91c93"
+                "reference": "afec88d2b758cad34590a4c626eb993ce0eb8c84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp-inspector/printer/zipball/237a29ffd3fd65b289c24153a5a0bc3c8fa91c93",
-                "reference": "237a29ffd3fd65b289c24153a5a0bc3c8fa91c93",
+                "url": "https://api.github.com/repos/reactphp-inspector/printer/zipball/afec88d2b758cad34590a4c626eb993ce0eb8c84",
+                "reference": "afec88d2b758cad34590a4c626eb993ce0eb8c84",
                 "shasum": ""
             },
             "require": {
@@ -212,7 +212,7 @@
                 }
             ],
             "description": "🖨️ Metrics Printer",
-            "time": "2020-01-13T13:16:17+00:00"
+            "time": "2020-01-13T13:25:59+00:00"
         },
         {
             "name": "react/event-loop",
