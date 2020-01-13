@@ -40,6 +40,6 @@ final class PrometheusPrinter implements Printer
             $string .= ' ' . $measurement->value() . ' ' . \floor($metric->time() * 1000) . self::NL;
         }
 
-        return $string;
+        return $string . self::NL;
     }
 }
