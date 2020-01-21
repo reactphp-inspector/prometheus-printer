@@ -4,9 +4,11 @@ namespace ReactInspector\Tests\Printer\Prometheus;
 
 use ReactInspector\Config;
 use ReactInspector\Measurement;
+use ReactInspector\Measurements;
 use ReactInspector\Metric;
 use ReactInspector\Printer\Prometheus\PrometheusPrinter;
 use ReactInspector\Tag;
+use ReactInspector\Tags;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
 /**
@@ -22,8 +24,8 @@ final class PrometheusPrinterTest extends AsyncTestCase
                 'counter',
                 'Halp'
             ),
-            [],
-            []
+            new Tags(),
+            new Measurements()
         );
 
         self::assertSame('', (new PrometheusPrinter())->print($metric));
@@ -37,13 +39,13 @@ final class PrometheusPrinterTest extends AsyncTestCase
                 'counter',
                 'Halp'
             ),
-            [
+            new Tags(
                 new Tag('global', 'true'),
-            ],
-            [
-                new Measurement(1, new Tag('t', 'a')),
-                new Measurement(2, new Tag('t', 'b')),
-            ]
+            ),
+            new Measurements(
+                new Measurement(1, new Tags(new Tag('t', 'a'))),
+                new Measurement(2, new Tags(new Tag('t', 'b'))),
+            )
         );
 
         $string = (new PrometheusPrinter())->print($metric);

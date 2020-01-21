@@ -11,7 +11,7 @@ final class PrometheusPrinter implements Printer
 
     public function print(Metric $metric): string
     {
-        if (\count($metric->measurements()) === 0) {
+        if (\count($metric->measurements()->get()) === 0) {
             return '';
         }
 
@@ -23,15 +23,16 @@ final class PrometheusPrinter implements Printer
 
         $string .= '# TYPE ' . $metric->config()->name() . ' ' . $metric->config()->type() . self::NL;
 
-        foreach ($metric->measurements() as $measurement) {
+        foreach ($metric->measurements()->get() as $measurement) {
             $string .= $metric->config()->name();
-            $tags = \array_merge($metric->tags(), $measurement->tags());
+            $tags = \array_merge($metric->tags()->get(), $measurement->tags()->get());
             $tagCount = \count($tags);
             if ($tagCount > 0) {
+                $tagKeys = \array_keys($tags);
                 $string .= '{';
                 for ($i = 0; $i < $tagCount; $i++) {
-                    $string .= $tags[$i]->key() . '="' . $tags[$i]->value() . '"';
-                    if (isset($tags[$i + 1])) {
+                    $string .= $tags[$tagKeys[$i]]->key() . '="' . $tags[$tagKeys[$i]]->value() . '"';
+                    if (isset($tagKeys[$i + 1])) {
                         $string .= ',';
                     }
                 }
