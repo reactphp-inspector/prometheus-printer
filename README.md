@@ -1,11 +1,11 @@
 # Metrics Printer in Prometheus format
 
-[![Linux Build Status](https://travis-ci.org/reactphp-inspector/prometheus-printer.png)](https://travis-ci.org/reactphp-inspector/prometheus-printer)
+![Continuous Integration](https://github.com/reactphp-inspector/prometheus-printer/workflows/Continuous%20Integration/badge.svg)
 [![Latest Stable Version](https://poser.pugx.org/react-inspector/prometheus-printer/v/stable.png)](https://packagist.org/packages/react-inspector/prometheus-printer)
-[![Total Downloads](https://poser.pugx.org/react-inspector/prometheus-printer/downloads.png)](https://packagist.org/packages/react-inspector/prometheus-printer)
+[![Total Downloads](https://poser.pugx.org/react-inspector/prometheus-printer/downloads.png)](https://packagist.org/packages/react-inspector/prometheus-printer/stats)
 [![Code Coverage](https://scrutinizer-ci.com/g/reactphp-inspector/prometheus-printer/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/reactphp-inspector/prometheus-printer/?branch=master)
+[![Type Coverage](https://shepherd.dev/github/reactphp-inspector/prometheus-printer/coverage.svg)](https://shepherd.dev/github/reactphp-inspector/prometheus-printer)
 [![License](https://poser.pugx.org/react-inspector/prometheus-printer/license.png)](https://packagist.org/packages/react-inspector/prometheus-printer)
-[![PHP 7 ready](http://php7ready.timesplinter.ch/reactphp-inspector/prometheus-printer/badge.svg)](https://travis-ci.org/reactphp-inspector/prometheus-printer)
 
 ### Installation ###
 
