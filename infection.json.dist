@@ -1,0 +1,44 @@
+{
+    "timeout": 120,
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "logs": {
+        "text": "infection-log.txt"
+    },
+    "mutators": {
+        "@default": true,
+        "RoundingFamily": {
+            "ignore": [
+                "ReactInspector\\Printer\\Prometheus\\PrometheusPrinter::print"
+            ]
+        },
+        "Multiplication": {
+            "ignore": [
+                "ReactInspector\\Printer\\Prometheus\\PrometheusPrinter::print"
+            ]
+        },
+        "IncrementInteger": {
+            "ignore": [
+                "ReactInspector\\Printer\\Prometheus\\PrometheusPrinter::print"
+            ]
+        },
+        "DecrementInteger": {
+            "ignore": [
+                "ReactInspector\\Printer\\Prometheus\\PrometheusPrinter::print"
+            ]
+        },
+        "Continue_": {
+            "ignore": [
+                "ReactInspector\\Printer\\Prometheus\\PrometheusPrinter::print"
+            ]
+        },
+        "GreaterThan": {
+            "ignore": [
+                "ReactInspector\\Printer\\Prometheus\\PrometheusPrinter::print"
+            ]
+        }
+    }
+}

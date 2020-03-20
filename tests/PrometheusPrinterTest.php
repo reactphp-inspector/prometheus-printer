@@ -18,11 +18,11 @@ final class PrometheusPrinterTest extends AsyncTestCase
 {
     public function testEmpty(): void
     {
-        $metric = new Metric(
+        $metric = Metric::create(
             new Config(
                 'metric_name',
                 'counter',
-                'Halp'
+                ''
             ),
             new Tags(),
             new Measurements()
@@ -33,7 +33,7 @@ final class PrometheusPrinterTest extends AsyncTestCase
 
     public function testNotEmpty(): void
     {
-        $metric = new Metric(
+        $metric = Metric::create(
             new Config(
                 'metric_name',
                 'counter',
@@ -53,5 +53,31 @@ final class PrometheusPrinterTest extends AsyncTestCase
         self::assertStringContainsString('# TYPE metric_name counter', $string);
         self::assertStringContainsString('metric_name{global="true",t="a"} 1 ', $string);
         self::assertStringContainsString('metric_name{global="true",t="b"} 2 ', $string);
+    }
+
+    public function testEmptyHelpDescription(): void
+    {
+        $metric = Metric::create(
+            new Config(
+                'metric_name',
+                'counter',
+                ''
+            ),
+            new Tags(
+                new Tag('global', 'true'),
+                new Tag('local', 'false'),
+            ),
+            new Measurements(
+                new Measurement(1, new Tags(new Tag('t', 'a'))),
+                new Measurement(2, new Tags(new Tag('t', 'b'))),
+            )
+        );
+
+        $string = (new PrometheusPrinter())->print($metric);
+
+        self::assertStringNotContainsString('# HELP metric_name', $string);
+        self::assertStringContainsString('# TYPE metric_name counter', $string);
+        self::assertStringContainsString('metric_name{global="true",local="false",t="a"} 1 ', $string);
+        self::assertStringContainsString('metric_name{global="true",local="false",t="b"} 2 ', $string);
     }
 }
