@@ -1,9 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace ReactInspector\Printer\Prometheus;
 
 use ReactInspector\Metric;
 use ReactInspector\Printer\Printer;
+
 use function array_key_exists;
 use function array_keys;
 use function array_merge;
